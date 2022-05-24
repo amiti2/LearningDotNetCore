@@ -14,8 +14,12 @@ namespace numbers
 
             int binarynotation = 0b10_10;
 
+            int hexadecimalnotation= 0xA;
+
             int result = binarynotation+4;
             Console.WriteLine(result);
+            System.Console.WriteLine(hexadecimalnotation ==binarynotation);
+            System.Console.WriteLine(hexadecimalnotation ==10);
         }
     }
 }
