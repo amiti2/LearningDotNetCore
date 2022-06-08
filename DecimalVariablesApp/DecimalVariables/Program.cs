@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            decimal amount = 0.2M;
+            decimal balance = 0.1M;
+            Console.WriteLine(amount + balance);
         }
     }
 }
