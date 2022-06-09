@@ -30,6 +30,13 @@ namespace Formatting
             name = ReadLine();
 
             WriteLine($"your name is {name}");
+
+            Write("Press any key: ");
+            ConsoleKeyInfo textadded = ReadKey();
+            WriteLine();
+            Console.WriteLine(textadded.Key);
+            Console.WriteLine(textadded.KeyChar);
+            Console.WriteLine(textadded.Modifiers);
         }
     }
 }
