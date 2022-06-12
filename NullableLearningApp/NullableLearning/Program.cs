@@ -9,8 +9,18 @@
             //PostAndPreIncrementExample();
             //BinaryArithmaticOperatorsExample();
             //BooleanLogicalOperatorsExample();
-            ConditionalLogicalOperatorsExample();
+            //ConditionalLogicalOperatorsExample();
+            BitwiseAndShiftOperators();
 
+        }
+
+        private static void BitwiseAndShiftOperators()
+        {
+            int a = 10;
+            int b = 6;
+            Console.WriteLine($"a & b = {a & b}");
+            Console.WriteLine($"a | b = {a | b}");
+            Console.WriteLine($"a >> 1 = {a >> 1}");
         }
 
         private static void ConditionalLogicalOperatorsExample()
