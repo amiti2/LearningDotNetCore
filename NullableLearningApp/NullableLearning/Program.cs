@@ -8,9 +8,26 @@
 
             //PostAndPreIncrementExample();
             //BinaryArithmaticOperatorsExample();
-            BooleanLogicalOperatorsExample();
+            //BooleanLogicalOperatorsExample();
+            ConditionalLogicalOperatorsExample();
 
         }
+
+        private static void ConditionalLogicalOperatorsExample()
+        {
+            bool a = true;
+            bool b = false;
+
+            Console.WriteLine($" a & DoStuff() = { a && DoStuff()}");
+            Console.WriteLine($" b & DoStuff() = { b && DoStuff()}");
+        }
+
+        private static bool DoStuff()
+        {
+            Console.WriteLine("I am doing some stuff");
+            return true;
+        }
+
 
         private static void BooleanLogicalOperatorsExample()
         {
