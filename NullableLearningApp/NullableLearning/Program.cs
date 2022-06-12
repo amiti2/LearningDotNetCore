@@ -8,6 +8,30 @@
 
             //PostAndPreIncrementExample();
             //BinaryArithmaticOperatorsExample();
+            BooleanLogicalOperatorsExample();
+
+        }
+
+        private static void BooleanLogicalOperatorsExample()
+        {
+            Boolean a = true;
+            Boolean b = false;
+
+            Console.WriteLine($"AND   |{"a ",10} | {"b",10}");
+            Console.WriteLine($"a     |{a&a,10} | {a&b,10}");
+            Console.WriteLine($"b     |{b&a,11}| {b & b,10}");
+
+            Console.WriteLine("----------------------------------");
+
+            Console.WriteLine($"OR    |{"a ",10}  | {"b",10}");
+            Console.WriteLine($"a     |{a|a,10}  | {a|b,10}");
+            Console.WriteLine($"b     |{b|a,10}  | {b|b,10}");
+
+            Console.WriteLine("----------------------------------");
+
+            Console.WriteLine($"XOR   |{"a ",10} | {"b",10}");
+            Console.WriteLine($"a     |{a^a,10} | {a^b,10}");
+            Console.WriteLine($"b     |{b^a,10} | {b^b,10}");
 
         }
 
@@ -26,6 +50,8 @@
             double g = 11.0;
             Console.WriteLine($"g is {g:N1} and f is { f }");
             Console.WriteLine($"g / f = { g / f }");
+
+            Console.WriteLine($"The result of division by double in divisor is {11/3.0}");
 
         }
 
