@@ -18,10 +18,43 @@
             //SimplifyingStatementWithSwitchExpression();
             //ForChallenge();
             //WhileChallenge();
-            DoWhileChallenge();
+            //DoWhileChallenge();
+            //CastingChallenge();
+            //ConvertingWithMethod();
+            //RoundingExample();
 
         }
 
+        private static void ConvertingWithMethod()
+        {
+            double number = 9.8;
+            int integralNumber = (int)number;
+
+            int integralNumberUsingConvertToType = Convert.ToInt32(number);
+
+            Console.WriteLine($"actual decimal is {number} and converted are {integralNumber} (using cast operator) and {integralNumberUsingConvertToType} (using conversion method)");
+
+        }
+
+        private static void CastingChallenge()
+        {
+            int a = 10;
+            double b = a;
+            Console.WriteLine(b);
+
+            double c = -3.9;
+            int d = (int)c;
+            Console.WriteLine(d);
+
+            long e = 10;
+            int f = (int)e;
+
+            long g = 5_000_000_000; //long.MaxValue;
+            int h = (int)g;
+          
+            Console.WriteLine($" e is {e} and f is {f}");
+            Console.WriteLine($" g is {g} and h is {h}");
+        }
         private static void DoWhileChallenge()
         {
             string password = String.Empty;
