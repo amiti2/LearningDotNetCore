@@ -21,8 +21,18 @@
             //DoWhileChallenge();
             //CastingChallenge();
             //ConvertingWithMethod();
-            //RoundingExample();
+            RoundingExample();
 
+        }
+
+        private static void RoundingExample()
+        {
+            double[] numbers = new double[6] { 9.49, 9.5 , 9.51, 10.49, 10.50, 10.51 };
+
+            foreach(double number in numbers)
+            {
+                Console.WriteLine($"Convert.ToInt32({number}) = {Convert.ToInt32(number)}");
+            }
         }
 
         private static void ConvertingWithMethod()
