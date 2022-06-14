@@ -10,8 +10,24 @@
             //BinaryArithmaticOperatorsExample();
             //BooleanLogicalOperatorsExample();
             //ConditionalLogicalOperatorsExample();
-            BitwiseAndShiftOperators();
+            //BitwiseAndShiftOperators();
+            PatternMatchingWithIfStatements();
 
+        }
+
+        private static void PatternMatchingWithIfStatements()
+        {
+            object o = 3;
+            int j = 4;
+            
+            if( o is int i)
+            {
+                Console.WriteLine($"{o} * {j} = {i*j}");
+            }
+            else
+            {
+                Console.WriteLine("o is not an int so it can not multiply");
+            }
         }
 
         private static void BitwiseAndShiftOperators()
