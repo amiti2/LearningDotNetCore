@@ -11,8 +11,40 @@
             //BooleanLogicalOperatorsExample();
             //ConditionalLogicalOperatorsExample();
             //BitwiseAndShiftOperators();
-            PatternMatchingWithIfStatements();
+            //PatternMatchingWithIfStatements();
+            BranchingWithSwitchStatement();
 
+        }
+
+        private static void BranchingWithSwitchStatement()
+        {
+        InitialValue:
+            int i  =(new Random()).Next(1,7);
+
+            switch (i)
+            {
+                default:
+                    Console.WriteLine("Default");
+                    break;
+               
+
+                case 3:
+                case 4:
+                    Console.WriteLine("Three or Four");
+                    goto case 2;
+
+
+                case 2:
+                    Console.WriteLine("Two");
+                    goto case 1;
+
+                case 1:
+                    Console.WriteLine("One");
+                    break;
+                case 5:
+                    goto InitialValue;
+               
+            }
         }
 
         private static void PatternMatchingWithIfStatements()
