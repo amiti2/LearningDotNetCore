@@ -14,7 +14,22 @@
             //PatternMatchingWithIfStatements();
             //BranchingWithSwitchStatement();
             //PaternMatchingWithSwitchStatement();
+            SimplifyingStatementWithSwitchExpression();
 
+        }
+
+        private static void SimplifyingStatementWithSwitchExpression()
+        {
+            string path = @"D:\Deleteitd.ext";
+            Stream s = File.Open(path, FileMode.Open);
+            string message = s switch { 
+                FileStream writeableFiles when s.CanWrite => "This is writablefile",
+                FileStream read => "this is readonly",
+                null => "this is null",
+                _ => "this is default",
+                
+            };
+            Console.WriteLine(message);
         }
 
         private static void PatternMatchingWithSwitchStatement()
@@ -23,11 +38,10 @@
             Stream s = File.Open(path, mode: FileMode.OpenOrCreate, access: FileAccess.ReadWrite);
 
             switch (s)
-            {
-                case null:
-                    break;
-
+            {              
                 default:
+                    break;
+                case null:
                     break;
                 case FileStream fileStream when s.CanWrite:
                     Console.WriteLine("The stream is a file that I can write to");
