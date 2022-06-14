@@ -24,6 +24,11 @@
 
             switch (s)
             {
+                case null:
+                    break;
+
+                default:
+                    break;
                 case FileStream fileStream when s.CanWrite:
                     Console.WriteLine("The stream is a file that I can write to");
                 break;
@@ -31,8 +36,7 @@
                 case FileStream readOnlyFile:
                     Console.WriteLine("This is readonly file");
                     break;
-                default:
-                    break;
+               
             }
         }
 
