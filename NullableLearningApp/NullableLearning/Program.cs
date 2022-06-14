@@ -12,21 +12,41 @@
             //ConditionalLogicalOperatorsExample();
             //BitwiseAndShiftOperators();
             //PatternMatchingWithIfStatements();
-            BranchingWithSwitchStatement();
+            //BranchingWithSwitchStatement();
+            //PaternMatchingWithSwitchStatement();
 
+        }
+
+        private static void PatternMatchingWithSwitchStatement()
+        {
+            string path = @"D:\Deleteit.ext";
+            Stream s = File.Open(path, mode: FileMode.OpenOrCreate, access: FileAccess.ReadWrite);
+
+            switch (s)
+            {
+                case FileStream fileStream when s.CanWrite:
+                    Console.WriteLine("The stream is a file that I can write to");
+                break;
+
+                case FileStream readOnlyFile:
+                    Console.WriteLine("This is readonly file");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private static void BranchingWithSwitchStatement()
         {
         InitialValue:
-            int i  =(new Random()).Next(1,7);
+            int i = (new Random()).Next(1, 7);
 
             switch (i)
             {
                 default:
                     Console.WriteLine("Default");
                     break;
-               
+
 
                 case 3:
                 case 4:
@@ -43,7 +63,7 @@
                     break;
                 case 5:
                     goto InitialValue;
-               
+
             }
         }
 
@@ -51,10 +71,10 @@
         {
             object o = 3;
             int j = 4;
-            
-            if( o is int i)
+
+            if (o is int i)
             {
-                Console.WriteLine($"{o} * {j} = {i*j}");
+                Console.WriteLine($"{o} * {j} = {i * j}");
             }
             else
             {
@@ -76,8 +96,8 @@
             bool a = true;
             bool b = false;
 
-            Console.WriteLine($" a & DoStuff() = { a && DoStuff()}");
-            Console.WriteLine($" b & DoStuff() = { b && DoStuff()}");
+            Console.WriteLine($" a & DoStuff() = {a && DoStuff()}");
+            Console.WriteLine($" b & DoStuff() = {b && DoStuff()}");
         }
 
         private static bool DoStuff()
@@ -86,27 +106,26 @@
             return true;
         }
 
-
         private static void BooleanLogicalOperatorsExample()
         {
             Boolean a = true;
             Boolean b = false;
 
             Console.WriteLine($"AND   |{"a ",10} | {"b",10}");
-            Console.WriteLine($"a     |{a&a,10} | {a&b,10}");
-            Console.WriteLine($"b     |{b&a,11}| {b & b,10}");
+            Console.WriteLine($"a     |{a & a,10} | {a & b,10}");
+            Console.WriteLine($"b     |{b & a,11}| {b & b,10}");
 
             Console.WriteLine("----------------------------------");
 
             Console.WriteLine($"OR    |{"a ",10}  | {"b",10}");
-            Console.WriteLine($"a     |{a|a,10}  | {a|b,10}");
-            Console.WriteLine($"b     |{b|a,10}  | {b|b,10}");
+            Console.WriteLine($"a     |{a | a,10}  | {a | b,10}");
+            Console.WriteLine($"b     |{b | a,10}  | {b | b,10}");
 
             Console.WriteLine("----------------------------------");
 
             Console.WriteLine($"XOR   |{"a ",10} | {"b",10}");
-            Console.WriteLine($"a     |{a^a,10} | {a^b,10}");
-            Console.WriteLine($"b     |{b^a,10} | {b^b,10}");
+            Console.WriteLine($"a     |{a ^ a,10} | {a ^ b,10}");
+            Console.WriteLine($"b     |{b ^ a,10} | {b ^ b,10}");
 
         }
 
@@ -116,17 +135,17 @@
             int f = 3;
 
             Console.WriteLine($"e is {e} and f is {f}");
-            Console.WriteLine($"e + f = { e + f }");
-            Console.WriteLine($"e - f = { e - f }");
-            Console.WriteLine($"e * f = { e * f }");
-            Console.WriteLine($"e / f = { e / f }");
-            Console.WriteLine($"e % f = { e % f }" );
+            Console.WriteLine($"e + f = {e + f}");
+            Console.WriteLine($"e - f = {e - f}");
+            Console.WriteLine($"e * f = {e * f}");
+            Console.WriteLine($"e / f = {e / f}");
+            Console.WriteLine($"e % f = {e % f}");
 
             double g = 11.0;
-            Console.WriteLine($"g is {g:N1} and f is { f }");
-            Console.WriteLine($"g / f = { g / f }");
+            Console.WriteLine($"g is {g:N1} and f is {f}");
+            Console.WriteLine($"g / f = {g / f}");
 
-            Console.WriteLine($"The result of division by double in divisor is {11/3.0}");
+            Console.WriteLine($"The result of division by double in divisor is {11 / 3.0}");
 
         }
 
