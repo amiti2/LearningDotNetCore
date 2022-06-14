@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+#nullable disable
         static void Main(string[] args)
         {
             // To run each example uncomment the subsequent statements
@@ -14,20 +15,57 @@
             //PatternMatchingWithIfStatements();
             //BranchingWithSwitchStatement();
             //PaternMatchingWithSwitchStatement();
-            SimplifyingStatementWithSwitchExpression();
+            //SimplifyingStatementWithSwitchExpression();
+            //ForChallenge();
+            //WhileChallenge();
+            DoWhileChallenge();
 
+        }
+
+        private static void DoWhileChallenge()
+        {
+            string password = String.Empty;
+            int count = 2;
+            string triesLeftMessage = String.Empty;
+            do
+            {
+                Console.Write("Please enter your password: ");
+                password = Console.ReadLine();
+                triesLeftMessage = --count == 0 ? "you have no tries left" : $"you have {count} tries left";
+                Console.WriteLine(triesLeftMessage);
+
+            } while (password != "Pa$$w0rd" && count > 0);
+            string finalMessage = "Sucessfully logged in";
+            
+            if(password != "Pa$$w0rd")
+            {
+                finalMessage = "you have forgotten your email";
+            }
+
+            Console.WriteLine(finalMessage);
+        }
+
+        private static void WhileChallenge()
+        {
+            int x = 0;
+            while (x < 10)
+            {
+                Console.WriteLine(x);
+                x++;
+            }
         }
 
         private static void SimplifyingStatementWithSwitchExpression()
         {
             string path = @"D:\Deleteitd.ext";
             Stream s = File.Open(path, FileMode.Open);
-            string message = s switch { 
+            string message = s switch
+            {
                 FileStream writeableFiles when s.CanWrite => "This is writablefile",
                 FileStream read => "this is readonly",
                 null => "this is null",
                 _ => "this is default",
-                
+
             };
             Console.WriteLine(message);
         }
@@ -38,19 +76,19 @@
             Stream s = File.Open(path, mode: FileMode.OpenOrCreate, access: FileAccess.ReadWrite);
 
             switch (s)
-            {              
+            {
                 default:
                     break;
                 case null:
                     break;
                 case FileStream fileStream when s.CanWrite:
                     Console.WriteLine("The stream is a file that I can write to");
-                break;
+                    break;
 
                 case FileStream readOnlyFile:
                     Console.WriteLine("This is readonly file");
                     break;
-               
+
             }
         }
 
