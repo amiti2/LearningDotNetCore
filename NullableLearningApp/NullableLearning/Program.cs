@@ -21,8 +21,42 @@
             //DoWhileChallenge();
             //CastingChallenge();
             //ConvertingWithMethod();
-            RoundingExample();
+            //RoundingExample();4
+            //TakingControlOfRoundingRules();
+            //TakingControlOfRounding2ndExample();
+            ToStringExample();
 
+        }
+
+        private static void ToStringExample()
+        {
+            int a = 1;
+            double b = -2;
+            decimal f = 0.3M;
+            System.Collections.Generic.List<int> linkedListExample = new List<int>();
+            Console.WriteLine(a.ToString());
+            Console.WriteLine(b.ToString());
+            Console.WriteLine(f.ToString());
+            Console.WriteLine(linkedListExample.ToString());
+        }
+
+        private static void TakingControlOfRounding2ndExample()
+        {
+            double[] numbers = new double[6] { 9.49 , 9.5 , 9.51, 10.49, 10.50, 10.51};
+            foreach (double number in numbers)
+            {
+                Console.WriteLine(format: "Math.Round({0},0,MidpointRounding.AwayFromZero) is {1}", arg0:number,arg1:Math.Round(number,0,MidpointRounding.AwayFromZero));
+            }
+        }
+
+        private static void TakingControlOfRoundingRules()
+        {
+            double[] numbers = new double[6] { 9.49, 9.5, 9.51, 10.49, 10.50, 10.51 };
+
+            foreach(double number in numbers)
+            {
+                Console.WriteLine(format: "Math.Round({0}, 0, Midpointrounding.AwayFromZero) is {1}",arg0: number, arg1:Math.Round(number,0,MidpointRounding.AwayFromZero));
+            }
         }
 
         private static void RoundingExample()
