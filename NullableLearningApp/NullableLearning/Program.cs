@@ -25,9 +25,26 @@
             //TakingControlOfRoundingRules();
             //TakingControlOfRounding2ndExample();
             //ToStringExample();
-            BinaryObjectToStringExample();
+            //BinaryObjectToStringExample();
+            LearningExceptions();
 
 
+        }
+
+        private static void LearningExceptions()
+        {
+            Console.Write("What is your age: ");
+            string age = Console.ReadLine();
+              
+            if(int.TryParse(age, out int result))
+            {
+                Console.WriteLine($"Age is {age}");
+            }
+            else
+            {
+                Console.WriteLine("I could not parse the input");
+            }
+            
         }
 
         private static void BinaryObjectToStringExample()
