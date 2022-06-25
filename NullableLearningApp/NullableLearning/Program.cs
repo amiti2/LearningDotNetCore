@@ -26,12 +26,35 @@
             //TakingControlOfRounding2ndExample();
             //ToStringExample();
             //BinaryObjectToStringExample();
-            LearningExceptions();
-
+            //LearningTryParse();
+            LearningException();
 
         }
 
-        private static void LearningExceptions()
+       private static void LearningException()
+        {
+            Console.Write("What is your age: ");
+            string input = Console.ReadLine();
+            try
+            {
+                int age = int.Parse(input);
+                Console.WriteLine($"age is {age}");
+            }
+            catch(OverflowException ex)
+            {
+                Console.WriteLine("It is valid age but either you have entered the number too large or too small");
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine($"Age you entered is not valid format");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"{ex.GetType()} says {ex.ToString()}");
+            }
+        }
+
+        private static void LearningTryParse()
         {
             Console.Write("What is your age: ");
             string age = Console.ReadLine();
