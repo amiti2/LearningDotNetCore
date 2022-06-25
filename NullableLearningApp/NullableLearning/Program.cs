@@ -27,8 +27,43 @@
             //ToStringExample();
             //BinaryObjectToStringExample();
             //LearningTryParse();
-            LearningException();
+            //LearningException();
+            PracticeAndExploring();
 
+        }
+        
+        public static void PracticeAndExploring()
+        {
+            int i = 7 ;
+            //Console.WriteLine(i/0);
+
+            double d = 10.0;
+            Console.WriteLine(d/0);
+
+           
+            unchecked
+            {
+                int g = int.MaxValue + 1;
+                g++;
+                Console.WriteLine(g);
+                g++;
+                Console.WriteLine(g);
+                g++;
+                Console.WriteLine(g);
+            }
+
+            i = 0;
+            for(;true;)
+            {
+                Console.WriteLine("it will run");
+                ++i;
+                
+                if(i==10)
+                {
+                    Console.WriteLine("Break statement");
+                    break;
+                }
+            }
         }
 
        private static void LearningException()
