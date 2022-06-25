@@ -24,9 +24,35 @@
             //RoundingExample();4
             //TakingControlOfRoundingRules();
             //TakingControlOfRounding2ndExample();
-            ToStringExample();
+            //ToStringExample();
+            BinaryObjectToStringExample();
+
 
         }
+
+        private static void BinaryObjectToStringExample()
+        {
+            byte[] objectInBytes = new byte[128];
+            (new Random()).NextBytes(objectInBytes);
+
+            foreach( byte b in objectInBytes)
+            {
+                Console.Write($"{ b.ToString():X} ");
+            }
+
+            for(int i = 0; i < objectInBytes.Length; i++)
+            {
+                Console.Write($"{objectInBytes[i]:X}");
+            }
+
+            //Convert to base64 and output as string
+            Console.WriteLine("------------");
+
+            string formattedOutput = Convert.ToBase64String(objectInBytes);
+
+            Console.WriteLine($"Binary Object as base64 {formattedOutput}");
+        }
+
 
         private static void ToStringExample()
         {
