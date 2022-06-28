@@ -18,8 +18,6 @@ namespace PeopleApp
                     arg0: bob.name,
                     arg1: bob.FavouriteWonder,
                     arg2: (int)bob.FavouriteWonder);
-        
-            //var s = File.Open("C://",FileMode.Append);
         }
     }
 }
