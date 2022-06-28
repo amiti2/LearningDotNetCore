@@ -7,5 +7,7 @@
             public DateTime dateOfBirth;
 
             public WonderOfTheAncientWorld FavouriteWonder;
+
+            public WondersOfTheAncientWorldFlag BucketList;
     }
 }
