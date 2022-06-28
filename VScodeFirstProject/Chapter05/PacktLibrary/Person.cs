@@ -5,5 +5,7 @@
     {
             public string? name;
             public DateTime dateOfBirth;
+
+            public WonderOfTheAncientWorld FavouriteWonder;
     }
 }
