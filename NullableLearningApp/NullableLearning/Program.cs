@@ -64,6 +64,14 @@
                     break;
                 }
             }
+            checked
+            {
+                int max = 500;
+                for (byte i1 = 0; i1 < max; i1++)
+                {
+                    Console.WriteLine(i1);
+                }
+            }
         }
 
        private static void LearningException()
