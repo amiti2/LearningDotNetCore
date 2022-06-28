@@ -9,7 +9,7 @@ namespace PeopleApp
             Person bob = new Person();
              bob.name = "Bob";
              bob.dateOfBirth = new DateTime(2011,4,23);
-             bob.FavouriteWonder = WonderOfTheAncientWorld.LighthouseOfAlexandria;
+             bob.FavouriteWonder =(WonderOfTheAncientWorld) 54;//WonderOfTheAncientWorld.LighthouseOfAlexandria;
              
           WriteLine(format:"{0} was born on {1:dddd, d MMMM yyyy}",
                      arg0: bob.name,

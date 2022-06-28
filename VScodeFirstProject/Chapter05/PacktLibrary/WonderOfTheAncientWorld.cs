@@ -8,6 +8,6 @@ namespace Packt.Shared
         TempleOfArtemisAtEphesus = 3,
         MausoleumAtHalicarnassus = 4,
         ColossusOfRhodes = 5,
-        LighthouseOfAlexandria = 6
+        LighthouseOfAlexandria = 26
     } 
 }
