@@ -23,10 +23,16 @@ namespace PartyInvites.Controllers
         }
 
         [HttpPost]
-        public ViewResult RsvpForm(GuestResponse response)
+        public ViewResult RsvpForm(GuestResponse guestResponse)
         {
             //to do: store response from guest
-            return View();
+            Repository.AddResponse(guestResponse);
+            return View("Thanks", guestResponse); 
+        }
+
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(f => f.WillAttend == true));
         }
     }
 }
