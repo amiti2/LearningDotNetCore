@@ -10,25 +10,31 @@
 <head>
     <title>RsvpForm</title>
     <meta name="viewport" content="width = no-width" />
+    <link href="/css/styles.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-   <form asp-action="RsvpForm" method="post">
-       <div>
+    <h5 class="bg-primary text-white text-center m-2 p-2">RSVP</h5>
+   <form asp-action="RsvpForm" method="post" class="m-2">
+
+       <div asp-validation-summary="All"></div>
+
+       <div class="form-group">
            <label asp-for="Name">Your Name:</label>
-           <input asp-for="Name" />
+           <input asp-for="Name" class="form-control" />
        </div>
        
-       <div>
+       <div class="form-group">
            <label asp-for="Email">Your Email:</label>
-           <input asp-for="Email" />
+           <input asp-for="Email" class="form-control"/>
        </div>
 
-       <div>
+       <div class="form-group">
            <label asp-for="PhoneNumber" ></label>
-           <input asp-for="PhoneNumber" />
+           <input asp-for="PhoneNumber" class="form-control" />
        </div>
 
-       <div>
+       <div class="form-group">
            <label>Will you attend?</label>
            <select asp-for="WillAttend">
                <option value="">Choose an option</option>
@@ -36,7 +42,7 @@
                <option value="false">No, I can not come</option>
            </select>
        </div>
-       <button type="submit">Submit RSVP</button>
+       <button type="submit" class="btn btn-primary">Submit RSVP</button>
    </form>
 </body>
 </html>

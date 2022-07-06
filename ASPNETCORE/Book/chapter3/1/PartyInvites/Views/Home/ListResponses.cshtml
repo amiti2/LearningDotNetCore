@@ -8,27 +8,30 @@
     <head>
         <title>Responses</title>
         <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
     </head>
     <body>
-        <h2>Here is the list of people attending party</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(GuestResponse guestResponse in Model)
-                {
+        <div class="text-center p-2">
+            <h2>Here is the list of people attending party</h2>
+            <table class="table table-bordered table-striped table-sm">
+                <thead>
                     <tr>
-                        <td>@guestResponse.Name</td>
-                        <td>@guestResponse.Email</td>
-                        <td>@guestResponse.PhoneNumber</td>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
                     </tr>
-                }
-        </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach(GuestResponse guestResponse in Model)
+                    {
+                        <tr>
+                            <td>@guestResponse.Name</td>
+                            <td>@guestResponse.Email</td>
+                            <td>@guestResponse.PhoneNumber</td>
+                        </tr>
+                    }
+            </tbody>
+            </table>
+        </div>        
     </body>
 </html>
