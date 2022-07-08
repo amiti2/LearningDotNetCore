@@ -6,9 +6,9 @@ namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+        public string Index()
         {
-            string? g = null;
+          
             List<string> results = new List<string>();
             foreach(var product in Product.GetProducts())
             {
@@ -16,9 +16,13 @@ namespace LanguageFeatures.Controllers
                 decimal price = product?.Price ?? 0.25M;
                 string relatedName = product?.Related?.Name ?? "No Related Product Name";
                 string category = product?.Category;
-                results.Add(string.Format("Name: {0}, Price:{1}, Related:{2}, Category : {3}", name, price, relatedName, category));
+                bool inStock = product?.Instock ?? false;
+               
+                results.Add(string.Format("Name: {0, 80}, Price:{1 , 5  }, Related:{2}, Category : {3}, In stock = {4}", name, price, relatedName, category, inStock));
             }
-            return View(results);
+
+            return results[0];
+            //return View(results);
             //return View(new string[] { "C#", "Language", "Features" });
         }
     }

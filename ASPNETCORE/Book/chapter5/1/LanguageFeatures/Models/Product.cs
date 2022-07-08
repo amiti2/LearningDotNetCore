@@ -9,7 +9,7 @@
         public Product Related { get; set; }
 
         //read-only property
-        public bool Instock { get; } = true;
+        public bool Instock { get; }= true;
 
         //property with auto initializer.
         public string Category { get; set; } = "water sports cat name";
@@ -36,12 +36,15 @@
         public Product(bool stock =true)
         {
             Instock = stock;
+           
         }
+
+       
 
         public static Product[] GetProducts()
         {
-            Product kayak = new Product { Name = "Kayak", Price = 275M, Category = "test sport" };
-            Product LifeJacket = new Product { Name="Life Jacket", Price = 48.95M};
+            Product kayak = new Product { Name = "Kayak", Price = 275M, Category = "test sport"};
+            Product LifeJacket = new Product(false) { Name="Life Jacket", Price = 48.95M};
             kayak.Related = LifeJacket;
             
 
