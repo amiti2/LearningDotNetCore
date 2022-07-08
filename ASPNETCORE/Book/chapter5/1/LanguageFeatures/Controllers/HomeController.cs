@@ -8,13 +8,15 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
+            string? g = null;
             List<string> results = new List<string>();
             foreach(var product in Product.GetProducts())
             {
                 string name = product?.Name ?? "No Name";
                 decimal price = product?.Price ?? 0.25M;
                 string relatedName = product?.Related?.Name ?? "No Related Product Name";
-                results.Add(string.Format("Name: {0}, Price:{1}, Related:{2}", name, price, relatedName));
+                string category = product?.Category;
+                results.Add(string.Format("Name: {0}, Price:{1}, Related:{2}, Category : {3}", name, price, relatedName, category));
             }
             return View(results);
             //return View(new string[] { "C#", "Language", "Features" });
