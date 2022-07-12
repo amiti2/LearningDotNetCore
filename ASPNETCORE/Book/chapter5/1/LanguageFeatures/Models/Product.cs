@@ -1,5 +1,9 @@
-﻿namespace LanguageFeatures.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace LanguageFeatures.Models
 {
+   
     public class Product
     {
         public string Name { get; set; }
@@ -31,7 +35,9 @@
                 cost = value;
             }
         }
-        
+
+       
+
         //read only property is set in constructors
         public Product(bool stock =true)
         {

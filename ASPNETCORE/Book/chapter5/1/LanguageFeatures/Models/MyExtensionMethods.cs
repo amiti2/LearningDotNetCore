@@ -29,6 +29,8 @@ namespace LanguageFeatures.Models
 
         public static IEnumerable<Product> Filter ( this IEnumerable<Product> products, Func<Product, bool> selector )
         {
+            var p = new { product = "Name" };
+            
             foreach (Product product in products)
             {
                 if (selector(product))

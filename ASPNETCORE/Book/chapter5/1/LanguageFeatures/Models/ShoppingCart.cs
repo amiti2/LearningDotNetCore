@@ -1,19 +1,27 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace LanguageFeatures.Models
 {
-    public class ShoppingCart : IEnumerable<Product>
+    public interface IProductSelection
     {
-        public IEnumerable<Product> Products { get; set; }
+        IEnumerable<Product> Products { get; }
+        IEnumerable<string> Names => Products.Select(p => p.Name);
 
-        public IEnumerator<Product> GetEnumerator()
+
+    }
+
+
+    public class ShoppingCart : IProductSelection
+    {
+        private List<Product> products = new List<Product>();
+
+        public ShoppingCart(params Product[] prods)
         {
-            return Products.GetEnumerator();
-        }
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-                 return GetEnumerator();
-        }
+            products.AddRange(prods);
+        }      
+
+        public IEnumerable<Product> Products => products;
     }
 }
