@@ -73,10 +73,10 @@ namespace LanguageFeatures.Controllers
 
             //decimal nameFilterTotal = productArray.FilterByName("C").TotalPrices();
 
-            decimal arrayTotal = productArray.Filter(FilterByPrice).TotalPrices();
+            decimal arrayTotal = productArray.Filter(p=> p.Price > 20).TotalPrices();
             //decimal nameFilterTotal = productArray.Filter(FilterByName).TotalPrices();
 
-            decimal nameFilterTotal = productArray.Filter(NameFilter).TotalPrices();
+            decimal nameFilterTotal = productArray.Filter(p=> p.Name.StartsWith("S")).TotalPrices();
 
             return View("Index", new string[] { $"Array Total: {arrayTotal:C2}" , $"Array Total: { nameFilterTotal:C2}" });
         }
