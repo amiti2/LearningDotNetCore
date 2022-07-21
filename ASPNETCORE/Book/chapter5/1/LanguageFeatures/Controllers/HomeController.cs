@@ -20,12 +20,27 @@ namespace LanguageFeatures.Controllers
             return p.Name.StartsWith("S");
         }
 
-        public  async Task<ViewResult> Index()
+        public async Task<ViewResult> Index()
         {
 
-            long? pageLength = await MyAsyncMethods.GetPageLength();
-            return View(new String[] { $"Length : { pageLength }"});
+            List<string> output = new List<string>();
+            await foreach (long? len in MyAsyncMethods.GetPageLengths(output, "apress.com", "microsoft.com", "amazon.com"))
+            {
+                output.Add($"Page length: {len}");
+            }
+            return View(output);
         }
+
+        //public async Task<ViewResult> Index()
+        //{
+        //    List<string> output = new List<string>();
+        //    await foreach (long? len in MyAsyncMethods.GetPageLengths(output,
+        //    "apress.com", "microsoft.com", "amazon.com"))
+        //    {
+        //        output.Add($"Page length: {len}");
+        //    }
+        //    return View(output);
+        //}
 
         public ViewResult Index1()
         {
