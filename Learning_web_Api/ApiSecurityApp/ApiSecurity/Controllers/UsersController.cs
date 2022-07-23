@@ -24,7 +24,7 @@ public class UsersController : ControllerBase
     [HttpGet("{id}")]
     public string Get(int id)
     {
-        return "value";
+        return _config.GetConnectionString("default");
     }
 
     // POST api/<UsersController>
