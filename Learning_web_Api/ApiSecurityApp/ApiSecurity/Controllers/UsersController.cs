@@ -12,7 +12,7 @@ public class UsersController : ControllerBase
     {
         _config = config;
     }
-
+  
     // GET: api/<UsersController>
     [HttpGet]
     public IEnumerable<string> Get()
