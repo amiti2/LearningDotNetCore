@@ -1,34 +1,35 @@
-﻿int age = int.Parse(Console.ReadLine()!);
+﻿Console.Write("what is your name: ");
+string name = Console.ReadLine()!;
 
-//switch (age)
-//{
-//    default:
-//        Console.WriteLine("age was not in expected range");
-//        break;
-//    case >=0 and < 18:
-//            Console.WriteLine("you are a child");
-//        break;
-//    case >= 18 and < 66:
-//        Console.WriteLine("you should have a job");
-//        break;
-//    case >= 66:
-//        Console.WriteLine("Hopefully you are retired or retiring soon");
-//        break;
+if(name.ToLower() == "tim" || name.ToLower() == "timothy")
+{
+    Console.WriteLine($"Hello { name } Professor");
+}
+else
+{
+    Console.WriteLine("welcome student");
+}
 
-//}
 
+switch (name.ToLower())
+{
+    case  "tim" or "timothy":
+        Console.WriteLine("Welcome professor: "+ name);
+        break;
+    default:
+        Console.WriteLine("welcome student");
+        break;
+
+}
+
+Console.Write("what is your age: ");
+int age = Convert.ToInt32(Console.ReadLine());
 switch (age)
 {
+    case > 0 and < 5:
+        Console.WriteLine("between 0 - 5");
+        break;
     default:
-        Console.WriteLine("no age");
-        break;
-    case 0:
-        Console.WriteLine("Age is 0");
-        break;
-    case 1:
-        Console.WriteLine("age is 1");
-        break;
-    case > 2:
-        Console.WriteLine("age is greater than 2");
+        Console.WriteLine("Age should be between 0 and 5");
         break;
 }
