@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace ApiSecurity.Controllers
 {
@@ -7,8 +11,15 @@ namespace ApiSecurity.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
+        private readonly IConfiguration config;
+
         public record AuthenticationData(string? Username, string? Password);
         public record Userdata(int UserId, string UserName);
+
+        public AuthenticationController(IConfiguration config)
+        {
+            this.config = config;
+        }
 
         [HttpPost("token")]
         public ActionResult<string> Authenticate([FromBody] AuthenticationData data)
@@ -16,10 +27,35 @@ namespace ApiSecurity.Controllers
             var userdata = ValidateCredentials(data);
             if (userdata != null)
             {
-                return userdata!.UserName;
+                return GenerateToken(userdata);
             }
             return Unauthorized();
         }
+
+        private string GenerateToken(Userdata user)
+        {
+            SymmetricSecurityKey secretkey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(
+                this.config.GetValue<string>("Authentication:SecretKey")
+                ));
+
+            SigningCredentials signingCredentials = new SigningCredentials(secretkey, SecurityAlgorithms.HmacSha256);
+
+            List<Claim> claims = new();
+            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()));
+            claims.Add(new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName));
+
+            var token = new JwtSecurityToken(issuer: config.GetValue<string>("Issuer"),
+                                            audience: config.GetValue<string>("Audience"),
+                                            claims:claims,
+                                            DateTime.UtcNow,
+                                            DateTime.UtcNow.AddMinutes(1),
+                                            signingCredentials
+                                          );
+
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
 
         private Userdata? ValidateCredentials(AuthenticationData data)
         {
